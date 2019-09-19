@@ -15,12 +15,18 @@ router.post('/signup', passport.authenticate('local-signup', {
     passReqToCallback: true
 })),
 router.get('/signin', (req, res, next) => {
-    
+    res.render('signin')
 }),
 // Escuchará los datos del usuario
-router.post('/signin', (req, res, next) => {
-    
-});
+router.post('/signin', passport.authenticate('local-signin', {
+    successRedirect: '/profile',
+    failureRedirect: '/signin',
+    passReqToCallback: true
+}));
+router.get('/logout', (req, res, next) => {
+    req.logout();
+    res.redirect('/');
+})
 
 router.get('/profile', (req, res, next) => {
     res.render('profile')
