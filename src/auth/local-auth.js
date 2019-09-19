@@ -1,8 +1,10 @@
+// -------------Cofiguración de passport--------------------
+
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy; // Distintos métodos de autenticación según passport
 // usuario para comparar o encriptar
 const User = require('../models/user');
-// Cómo se utilizan los datos que vienen del cliente --- funcioón----
+// Cómo se utilizan los datos que vienen del cliente --- función----
 // ----------nombre del método, método de autenticación
 // ------------------------------------------auth object, callback de ejecución
 passport.use('local-signup', new LocalStrategy({

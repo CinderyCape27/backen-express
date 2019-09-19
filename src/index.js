@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const engine = require('ejs-mate');
 const app = express();
 
-// Initializayion
+// Initialization
 require('./database');
 // Settings
 app.set('views', path.join(__dirname, 'views'));

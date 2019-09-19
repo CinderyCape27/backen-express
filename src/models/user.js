@@ -1,9 +1,8 @@
 // Modelo para los usuarios
 const mongoose = require('mongoose');
-
+const { Schema } = mongoose;
 // Hasheo de contraseñas
 const bcrypt = require('bcrypt-nodejs');
-const { Schema } = mongoose;
 
 // Estructura de usuarios
 const userSchema = new Schema({
@@ -11,7 +10,9 @@ const userSchema = new Schema({
     password: String,
 });
 
-// Encriptación de la contraseña
+
+// ------------- Encriptación de la contraseña ---------
+
 userSchema.methods.encryptPassword = (password) => {
  // espera la contraseña  
     return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
