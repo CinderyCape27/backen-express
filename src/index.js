@@ -20,19 +20,19 @@ app.set('port', process.env.PORT || 3000);
 // Middlewares
 app.use(express.urlencoded({extended: false})); // Indica como se recibirán los datos 
 app.use(morgan('dev'));
-app.use(passport.initialize());
 app.use(session({
     secret: 'mysecretsession',
     resave: false,
     saveUninitialized: false
 }));
 app.use(flash());
+app.use(passport.initialize());
 app.use(passport.session());
 
 app.use((req, res, next) => {
-    app.locals.signupMessage = req.flash('signupMessage');
     app.locals.signinMessage = req.flash('signinMessage');
-
+    app.locals.signupMessage = req.flash('signupMessage');
+    app.locals.user = req.user;
     next();
 }) 
 

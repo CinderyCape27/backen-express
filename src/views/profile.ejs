@@ -1,3 +1,5 @@
+<%- layout('layout/main.ejs')%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +9,12 @@
     <title>Home</title>
 </head>
 <body>
-    <h1> Profile </h1>
+    <h1> Welcome </h1>
+    <div class="card card-body">
+        <h3> <%= user.email %> </h3>
+        <p> <%= user.password %> </p> 
+        <p> <%= user._id %> </p>
+    </div>
+
 </body>
 </html>
